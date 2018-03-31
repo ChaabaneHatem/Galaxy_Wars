@@ -6,6 +6,9 @@ TagManager:
   tags:
   - PlayerPlanet
   - EnemyPlanet
+  - ParticuleEnemy
+  - ParticulePlayer
+  - NeutralPlanet
   layers:
   - Default
   - TransparentFX
@@ -15,12 +18,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Environment
+  - PlayerPlanet
+  - EnemyPlanet
+  - ParticuleEnemy
+  - ParticulePlayer
+  - NeutralPlanet
   - 
   - 
   - 
