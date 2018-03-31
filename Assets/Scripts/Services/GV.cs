@@ -20,6 +20,9 @@ public class GV
     public static readonly string ENEMY_PARTICULE_TAG = "ParticuleEnemy";
 
 
+    //information Camera Control
+    public static readonly float CAMERA_SPEED = 10;
+
     //useful function
     public static float GetRandomFloat(Vector2 vector)
     {
