@@ -9,6 +9,8 @@ TagManager:
   - ParticuleEnemy
   - ParticulePlayer
   - NeutralPlanet
+  - ParentParticulePlayer
+  - ParentParticuleEnemy
   layers:
   - Default
   - TransparentFX

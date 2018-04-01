@@ -9,6 +9,7 @@ public class Particule : MonoBehaviour
     NavMeshAgent meshAgent;
     Transform destination;
     public float value = GV.PARTICULE_VALUE;
+    public GV.PLANET_TYPE particuleType;
 
     //get the navmeshagent conponement 
     public void initParticule()

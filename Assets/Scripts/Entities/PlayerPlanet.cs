@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerPlanet : Planet
 {
-
+    private static float nbTotalParticulePlayer;
     private float currentTime;
     private Transform parentParticulePlayer;
 
     public void initPlayerPlanet()
     {
+        nbTotalParticulePlayer = 0;
         currentTime = 0;
         type = GV.PLANET_TYPE.PLAYER;
-        lvl = 1;
+        lvl = 2;
         capacity = lvl * GV.PLANET_MAX_PARTICULE_PER_LEVEL;
         currentHealth = capacity;
         position = gameObject.transform;
@@ -41,7 +42,13 @@ public class PlayerPlanet : Planet
 
             GameObject particule = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Entities\\ParticulePlanet"));
             particule.transform.SetParent(parentParticulePlayer);
-            particule.transform.position = Random.onUnitSphere.normalized * 1.5f;
+            particule.transform.position = gameObject.transform.position + Random.onUnitSphere.normalized * 1.5f;
+            particule.GetComponent<Particule>().particuleType = type;
+            Debug.Log(" currentTime : " + currentTime);
+            currentTime = 0;
+            nbTotalParticulePlayer++;
+            Debug.Log(" ParentParticulePlayer : " + nbTotalParticulePlayer);
+
         }
     }
 

@@ -2,15 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPlanetManager : MonoBehaviour {
+public class PlayerPlanetManager
+{
+    #region singleton
+    private static PlayerPlanetManager instance;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private PlayerPlanetManager() { }
+
+    public static PlayerPlanetManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = new PlayerPlanetManager();
+
+            return instance;
+        }
+    }
+    #endregion singleton
+
+    //all player planets given by the game flow as transform parent 
+    public Transform playerPlanets;
+    private Dictionary<Transform, PlayerPlanet> listePlayerPlanets;
+
+
+    public void InitPlayerPlanetManager(Transform _PlayerPlanets)
+    {
+        playerPlanets = _PlayerPlanets;
+        listePlayerPlanets = new Dictionary<Transform, PlayerPlanet>();
+        foreach (Transform playerPlanet in playerPlanets)
+        {
+            if (playerPlanet != null)
+            {
+                PlayerPlanet playerPlanetComponemt = playerPlanet.GetComponent<PlayerPlanet>();
+                listePlayerPlanets.Add(playerPlanet, playerPlanetComponemt);
+                playerPlanetComponemt.initPlayerPlanet();
+            }
+        }
+    }
+
+
+    public void UpdatePlayerPlanet(float dt)
+    {
+        foreach (KeyValuePair<Transform, PlayerPlanet> kv in listePlayerPlanets)
+        {
+            if (kv.Value != null)
+            {
+                kv.Value.UpdatePlayerPlanet(dt);
+            }
+        }
+    }
+
 }

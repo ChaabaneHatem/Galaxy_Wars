@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33459851126689654}
   - component: {fileID: 135013981196214056}
   - component: {fileID: 23205987571130708}
+  - component: {fileID: 114240285297297526}
   m_Layer: 12
   m_Name: ParticulePlanet
   m_TagString: ParticulePlayer
@@ -83,6 +84,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076351800543074}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114240285297297526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076351800543074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6774d5d32d01ae04dab2a2f5bb60ef23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 1
+  particuleType: 1
 --- !u!135 &135013981196214056
 SphereCollider:
   m_ObjectHideFlags: 1
