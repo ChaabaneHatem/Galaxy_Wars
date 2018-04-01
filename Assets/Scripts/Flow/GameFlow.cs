@@ -18,4 +18,9 @@ public class GameFlow : MonoBehaviour
         deltaTime = Time.deltaTime;
         CameraManager.Instance.UpdateCamera(deltaTime);
     }
+
+    private void FixedUpdate()
+    {
+
+    }
 }

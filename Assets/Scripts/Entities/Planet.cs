@@ -1,16 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Planet : MonoBehaviour {
+public class Planet : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    //type of planet 
+    public GV.PLANET_TYPE type;
+    //level of planet
+    [Range(1, 3)]
+    public float lvl;
+    //planet capacity
+    public float capacity;
+    //planet health
+    public float currentHealth;
+    //planet position 
+    public Transform position;
+    //material of planet 
+    public Material material;
+
+    // HUD progress bar 
+    public Input ProgressBar;
+
 }
