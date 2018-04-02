@@ -6,7 +6,7 @@ public class PlayerPlanet : Planet
 {
     private static float nbTotalParticulePlayer;
     private float currentTime;
-    private Transform parentParticulePlayer;
+    private static Transform parentParticulePlayer;
 
     public void initPlayerPlanet()
     {
@@ -31,9 +31,9 @@ public class PlayerPlanet : Planet
 
 
         //test partie 
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
-            Debug.Log("planet destroyed");
+            Debug.LogError("planet destroyed");
             //GameObject.Destroy(this.gameObject);
         }
     }

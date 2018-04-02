@@ -34,9 +34,9 @@ public class Particule : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        GetDamageOrEnergy(collision.gameObject);
+        GetDamageOrEnergy(other.gameObject);
     }
 
 
@@ -48,7 +48,7 @@ public class Particule : MonoBehaviour
             PlayerPlanet playerPlanet = objectInCollision.GetComponent<PlayerPlanet>();
             if (particuleType == playerPlanet.type)
             {
-                if (playerPlanet.currentHealth <= playerPlanet.capacity)
+                if (playerPlanet.currentHealth < playerPlanet.capacity)
                 {
                     playerPlanet.currentHealth += value;
                     GameObject.Destroy(this.gameObject);
@@ -56,17 +56,18 @@ public class Particule : MonoBehaviour
             }
             else
             {
-                playerPlanet.currentHealth -= value;
+                if (playerPlanet.currentHealth > 0)
+                    playerPlanet.currentHealth -= value;
                 GameObject.Destroy(this.gameObject);
             }
-            Debug.Log(playerPlanet.currentHealth);
+            Debug.Log("player planet heath" + playerPlanet.currentHealth);
         }
         else if (objectInCollision.CompareTag(GV.PLAYER_PLANET_TAG))
         {
             EnemyPlanet enemyPlanet = objectInCollision.GetComponent<EnemyPlanet>();
             if (particuleType == enemyPlanet.type)
             {
-                if (enemyPlanet.currentHealth <= enemyPlanet.capacity)
+                if (enemyPlanet.currentHealth < enemyPlanet.capacity)
                 {
                     enemyPlanet.currentHealth += value;
                     GameObject.Destroy(this.gameObject);
@@ -74,11 +75,12 @@ public class Particule : MonoBehaviour
             }
             else
             {
-                enemyPlanet.currentHealth -= value;
+                if (enemyPlanet.currentHealth > 0)
+                    enemyPlanet.currentHealth -= value;
                 GameObject.Destroy(this.gameObject);
             }
 
-            Debug.Log(enemyPlanet.currentHealth);
+            Debug.Log("enemy planet heath" + enemyPlanet.currentHealth);
         }
     }
 
