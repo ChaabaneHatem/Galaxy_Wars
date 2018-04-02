@@ -13,16 +13,29 @@ public class PlayerPlanet : Planet
         nbTotalParticulePlayer = 0;
         currentTime = 0;
         type = GV.PLANET_TYPE.PLAYER;
-        lvl = 2;
+        //lvl = 2;
         capacity = lvl * GV.PLANET_MAX_PARTICULE_PER_LEVEL;
         currentHealth = capacity;
         position = gameObject.transform;
         material = Resources.Load<Material>("Materials\\PlayerPlanet");
+        size = lvl * 2f;
+
+        //if the planet are static object they will not change when the game run
+        //gameObject.transform.localScale += new Vector3(size, size, size);
     }
 
     public void UpdatePlayerPlanet(float dt)
     {
         GenerationParticule(dt);
+
+
+
+        //test partie 
+        if (currentHealth == 0)
+        {
+            Debug.Log("planet destroyed");
+            //GameObject.Destroy(this.gameObject);
+        }
     }
 
 
@@ -51,5 +64,9 @@ public class PlayerPlanet : Planet
 
         }
     }
+
+
+    //function plus detail with get damage and get energy a faiire ....
+
 
 }

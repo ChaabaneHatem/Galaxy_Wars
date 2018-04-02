@@ -20,6 +20,9 @@ public class Planet : MonoBehaviour
     //material of planet 
     public Material material;
 
+    //size of planet 
+    public float size;
+
     // HUD progress bar 
     public Input ProgressBar;
 

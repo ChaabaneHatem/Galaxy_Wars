@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33885604975002534}
   - component: {fileID: 135654113327962406}
   - component: {fileID: 23745872178132112}
+  - component: {fileID: 54556436255660110}
   m_Layer: 13
   m_Name: NeutralPlanet
   m_TagString: NeutralPlanet
@@ -83,6 +84,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1249430022153832}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54556436255660110
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249430022153832}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!135 &135654113327962406
 SphereCollider:
   m_ObjectHideFlags: 1

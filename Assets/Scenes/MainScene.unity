@@ -112,7 +112,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 54034d75547c151488ad7f2a5dd4862f, type: 2}
 --- !u!1 &140876943
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +313,11 @@ Prefab:
     - target: {fileID: 1614369097091494, guid: 7901b396475167c4b8a52f5448a86604, type: 2}
       propertyPath: m_Name
       value: PlayerPlanet
+      objectReference: {fileID: 0}
+    - target: {fileID: 114831174649579454, guid: 7901b396475167c4b8a52f5448a86604,
+        type: 2}
+      propertyPath: lvl
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7901b396475167c4b8a52f5448a86604, type: 2}
@@ -524,6 +529,11 @@ Prefab:
     - target: {fileID: 4332780042922160, guid: 7901b396475167c4b8a52f5448a86604, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114831174649579454, guid: 7901b396475167c4b8a52f5448a86604,
+        type: 2}
+      propertyPath: lvl
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7901b396475167c4b8a52f5448a86604, type: 2}
