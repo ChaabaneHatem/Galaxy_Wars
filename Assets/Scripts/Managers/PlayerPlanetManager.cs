@@ -23,7 +23,7 @@ public class PlayerPlanetManager
 
     //all player planets given by the game flow as transform parent 
     public Transform playerPlanets;
-    private Dictionary<Transform, PlayerPlanet> listePlayerPlanets;
+    public Dictionary<Transform, PlayerPlanet> listePlayerPlanets;
 
 
     public void InitPlayerPlanetManager(Transform _PlayerPlanets)

@@ -15,7 +15,7 @@ public class Particule : MonoBehaviour
     public void initParticule()
     {
         NavMeshAgent _meshAgent = gameObject.transform.GetComponent<NavMeshAgent>();
-        if (_meshAgent != null)
+        if (_meshAgent == null)
         {
             Debug.LogError("Component NavMeshAgent not attached with the gameObject" + gameObject.name);
         }
@@ -30,7 +30,8 @@ public class Particule : MonoBehaviour
     public void setParticuleDestination(Transform _destination)
     {
         destination = _destination;
-        meshAgent.SetDestination(destination.position);
+        if (meshAgent != null)
+            meshAgent.SetDestination(destination.position);
     }
 
 

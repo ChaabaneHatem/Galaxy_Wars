@@ -11,6 +11,8 @@ TagManager:
   - NeutralPlanet
   - ParentParticulePlayer
   - ParentParticuleEnemy
+  - ParentPlayerPlanet
+  - ParentEnemyPlanet
   layers:
   - Default
   - TransparentFX

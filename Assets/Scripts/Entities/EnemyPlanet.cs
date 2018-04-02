@@ -54,6 +54,8 @@ public class EnemyPlanet : Planet
                 Debug.LogError("Particule scripts non attached to particule enemy " + particule.name);
             }
             particuleComponent.particuleType = type;
+            particuleComponent.initParticule();
+
             Debug.Log(" currentTime : " + currentTime);
             currentTime = 0;
             nbTotalParticuleEnemy++;

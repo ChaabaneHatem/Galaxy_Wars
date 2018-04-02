@@ -17,7 +17,7 @@ public class GV
     public static readonly string ENEMY_PLANET_TAG = "EnemyPlanet";
     public static readonly string PARENT_ENEMY_PLANET = "ParentEnemyPlanet";
     public static readonly string PARENT_PARTICULE_ENNEMY_TAG = "ParentParticuleEnemy";
-
+    public static readonly float TIME_ENEMY_TO_ATTACK = 90;
 
 
     //particule informations

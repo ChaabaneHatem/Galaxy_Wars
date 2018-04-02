@@ -56,7 +56,15 @@ public class PlayerPlanet : Planet
             GameObject particule = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Entities\\ParticulePlanet"));
             particule.transform.SetParent(parentParticulePlayer);
             particule.transform.position = gameObject.transform.position + Random.onUnitSphere.normalized * 1.5f;
-            particule.GetComponent<Particule>().particuleType = type;
+            Particule particuleComponent = particule.GetComponent<Particule>();
+            if (particuleComponent == null)
+            {
+                Debug.LogError("Particule scripts non attached to particule enemy " + particule.name);
+            }
+            particuleComponent.particuleType = type;
+            //we must call this function when particule was created 
+            particuleComponent.initParticule();
+
             Debug.Log(" currentTime : " + currentTime);
             currentTime = 0;
             nbTotalParticulePlayer++;
