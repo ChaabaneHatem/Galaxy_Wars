@@ -8,11 +8,16 @@ public class GV
     //planet informations
     public enum PLANET_TYPE { ENEMY, PLAYER };
     public static readonly float PLANET_MAX_PARTICULE_PER_LEVEL = 25;
-    public static readonly string PLAYER_PLANET_TAG = "PlayerPlanet";
-    public static readonly string PARENT_PARTICULE_PLAYER_TAG = "ParentParticulePlayer";
-    public static readonly string ENEMY_PLANET_TAG = "EnemyPlanet";
-    public static readonly string PARENT_PARTICULE_ENNEMY_TAG = "ParentParticuleEnemy";
     public static readonly float PLANET_TIME_GENERATION_PARTICULE = 10;
+
+    public static readonly string PLAYER_PLANET_TAG = "PlayerPlanet";
+    public static readonly string PARENT_PLAYER_PLANET = "ParentPlayerPlanet";
+    public static readonly string PARENT_PARTICULE_PLAYER_TAG = "ParentParticulePlayer";
+
+    public static readonly string ENEMY_PLANET_TAG = "EnemyPlanet";
+    public static readonly string PARENT_ENEMY_PLANET = "ParentEnemyPlanet";
+    public static readonly string PARENT_PARTICULE_ENNEMY_TAG = "ParentParticuleEnemy";
+
 
 
     //particule informations

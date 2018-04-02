@@ -35,18 +35,18 @@ public class PlayerPlanetManager
             if (playerPlanet != null)
             {
                 PlayerPlanet playerPlanetComponemt = playerPlanet.GetComponent<PlayerPlanet>();
-                listePlayerPlanets.Add(playerPlanet, playerPlanetComponemt);
                 playerPlanetComponemt.initPlayerPlanet();
+                listePlayerPlanets.Add(playerPlanet, playerPlanetComponemt);
             }
         }
     }
 
 
-    public void UpdatePlayerPlanet(float dt)
+    public void UpdatePlayerPlanetManager(float dt)
     {
         foreach (KeyValuePair<Transform, PlayerPlanet> kv in listePlayerPlanets)
         {
-            if (kv.Value != null)
+            if (kv.Key != null)
             {
                 kv.Value.UpdatePlayerPlanet(dt);
             }

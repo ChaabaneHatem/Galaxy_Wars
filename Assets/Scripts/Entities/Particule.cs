@@ -37,6 +37,7 @@ public class Particule : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GetDamageOrEnergy(other.gameObject);
+        CollisionOtherParticule(other.gameObject);
     }
 
 
@@ -62,7 +63,7 @@ public class Particule : MonoBehaviour
             }
             Debug.Log("player planet heath" + playerPlanet.currentHealth);
         }
-        else if (objectInCollision.CompareTag(GV.PLAYER_PLANET_TAG))
+        else if (objectInCollision.CompareTag(GV.ENEMY_PLANET_TAG))
         {
             EnemyPlanet enemyPlanet = objectInCollision.GetComponent<EnemyPlanet>();
             if (particuleType == enemyPlanet.type)
@@ -83,5 +84,22 @@ public class Particule : MonoBehaviour
             Debug.Log("enemy planet heath" + enemyPlanet.currentHealth);
         }
     }
+
+
+    private void CollisionOtherParticule(GameObject otherParticule)
+    {
+        if (otherParticule.CompareTag(GV.PLAYER_PARTICULE_TAG) || otherParticule.CompareTag(GV.ENEMY_PARTICULE_TAG))
+        {
+            Debug.Log("particule destroyed Named" + gameObject.name);
+            PlayerPlanet.nbTotalParticulePlayer--;
+            EnemyPlanet.nbTotalParticuleEnemy--;
+            GameObject.Destroy(this.gameObject);
+        }
+
+
+
+
+    }
+
 
 }

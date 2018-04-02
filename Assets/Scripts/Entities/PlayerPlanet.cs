@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPlanet : Planet
 {
-    private static float nbTotalParticulePlayer;
+    public static float nbTotalParticulePlayer;
     private float currentTime;
     private static Transform parentParticulePlayer;
 

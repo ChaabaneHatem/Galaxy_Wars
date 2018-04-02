@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135244085314915538}
   - component: {fileID: 23606642112312184}
   - component: {fileID: 54344196923755688}
+  - component: {fileID: 114382073829607754}
   m_Layer: 10
   m_Name: EnemyPlanet
   m_TagString: EnemyPlanet
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1028119211290822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5.19}
+  m_LocalPosition: {x: 4.93, y: 0, z: 5.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,6 +100,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114382073829607754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1028119211290822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0826e5c8527cd4a8f96c4de7045476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  lvl: 3
+  capacity: 0
+  currentHealth: 0
+  position: {fileID: 0}
+  material: {fileID: 0}
+  size: 0
 --- !u!135 &135244085314915538
 SphereCollider:
   m_ObjectHideFlags: 1
