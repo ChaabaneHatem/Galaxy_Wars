@@ -201,10 +201,9 @@ GameObject:
   - component: {fileID: 148720694}
   - component: {fileID: 148720693}
   - component: {fileID: 148720692}
-  - component: {fileID: 148720695}
   m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -228,7 +227,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 148720690}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -277,22 +276,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 148720690}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &148720695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 148720690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 739ed99d08f774c48b3df4e62e4234bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isClicked: 0
-  isSelected: 0
-  firstPositionClick: {x: 0, y: 0, z: 0}
-  lastPositionClick: {x: 0, y: 0, z: 0}
-  distanceOfSelection: 0
 --- !u!1001 &164104528
 Prefab:
   m_ObjectHideFlags: 0
@@ -925,7 +908,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1878531674}
   m_LocalRotation: {x: 0.69548535, y: 0.027950412, z: -0.026755242, w: 0.7174978}
-  m_LocalPosition: {x: 2.9131238, y: 10.239153, z: 2.4846363}
+  m_LocalPosition: {x: 2.9131238, y: 20.08, z: 2.4846363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

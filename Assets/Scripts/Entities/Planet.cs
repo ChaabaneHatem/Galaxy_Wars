@@ -26,4 +26,10 @@ public class Planet : MonoBehaviour
     // HUD progress bar 
     public Input ProgressBar;
 
+
+    public virtual void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
 }

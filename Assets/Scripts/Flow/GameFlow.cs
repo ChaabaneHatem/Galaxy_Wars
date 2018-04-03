@@ -32,7 +32,7 @@ public class GameFlow : MonoBehaviour
         CameraManager.Instance.UpdateCamera(deltaTime);
         PlayerPlanetManager.Instance.UpdatePlayerPlanetManager(deltaTime);
         ParticuleManager.Instance.UpdateParticuleManager(deltaTime);
-        PlayerManager.Instance.UpdatePlayerManager(deltaTime);
+        PlayerManager.Instance.UpdatePlayerManager();
     }
 
     private void FixedUpdate()
