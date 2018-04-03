@@ -120,6 +120,7 @@ public class ParticuleManager
 
     public void ControlParticulePlayer(Dictionary<Transform, Particule> listSelectedParticulePlayer, Transform destination)
     {
+        Debug.Log("appel control particule player ");
         foreach (KeyValuePair<Transform, Particule> kv in listSelectedParticulePlayer)
         {
             if (kv.Key != null)

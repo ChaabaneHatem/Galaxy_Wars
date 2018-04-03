@@ -34,6 +34,7 @@ public class PlayerPlanet : Planet
         if (currentHealth <= 0)
         {
             Debug.LogError("planet destroyed");
+            GameObject.Destroy(gameObject);
             //GameObject.Destroy(this.gameObject);
         }
     }

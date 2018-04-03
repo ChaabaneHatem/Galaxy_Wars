@@ -17,7 +17,7 @@ public class GV
     public static readonly string ENEMY_PLANET_TAG = "EnemyPlanet";
     public static readonly string PARENT_ENEMY_PLANET = "ParentEnemyPlanet";
     public static readonly string PARENT_PARTICULE_ENNEMY_TAG = "ParentParticuleEnemy";
-    public static readonly float TIME_ENEMY_TO_ATTACK = 90;
+    public static readonly float TIME_ENEMY_TO_ATTACK = 30;
 
 
     //particule informations
@@ -25,6 +25,11 @@ public class GV
     public static readonly float PARTICULE_VALUE = 1;
     public static readonly string PLAYER_PARTICULE_TAG = "ParticulePlayer";
     public static readonly string ENEMY_PARTICULE_TAG = "ParticuleEnemy";
+
+
+    //game information 
+    public static readonly string ENVIRONMENT_TAG = "Environment";
+
 
 
     //information Camera Control

@@ -47,6 +47,7 @@ public class PlayerManager : Selection
         distanceOfSelection = 0;
 
         destinationPoint = new GameObject().transform;
+        destinationPoint.position = new Vector3(1.5f, 0, 1.5f);
         selection = new GameObject();
         InitSelection();
     }
@@ -54,13 +55,24 @@ public class PlayerManager : Selection
 
     public void UpdatePlayerManager(float dt)
     {
-        if (destinationPoint.position != null)
+        //Correct code
+        //if (destinationPoint.position != null)
+        //{
+        //    if (listOfSelectedParticulePlayer != null)
+        //    {
+        //        ParticuleManager.Instance.ControlParticulePlayer(listOfSelectedParticulePlayer, destinationPoint);
+        //    }
+        //}
+
+
+        if (isSelected)
         {
             if (listOfSelectedParticulePlayer != null)
             {
                 ParticuleManager.Instance.ControlParticulePlayer(listOfSelectedParticulePlayer, destinationPoint);
             }
         }
+
     }
 
 
@@ -69,37 +81,21 @@ public class PlayerManager : Selection
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit raycastHit;
-        if (!isSelected)
+        Debug.Log("mousedown");
+        isClicked = true;
+        isSelected = false;
+        if (Physics.Raycast(ray, out raycastHit))
         {
-            Debug.Log("mousedown");
-            isClicked = true;
-            if (Physics.Raycast(ray, out raycastHit))
-            {
-                firstPositionClick = lastPositionClick = raycastHit.point;
-            }
-            selection = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\SpriteSelection\\Selection"));
-            selection.name = "CercleSelection";
-            selection.transform.localScale = new Vector3(0, 0, 0);
-            selection.gameObject.transform.position = firstPositionClick;
-
-            distanceOfSelection = Vector3.Distance(firstPositionClick, lastPositionClick);
-            selection.transform.localScale = new Vector3(distanceOfSelection, distanceOfSelection, 0);
+            firstPositionClick = lastPositionClick = raycastHit.point;
         }
-        if (isSelected)
-        {
-            if (Physics.Raycast(ray, out raycastHit))
-            {
-                destinationPoint.position = raycastHit.point;
-                isSelected = false;
+        selection = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\SpriteSelection\\Selection"));
+        selection.name = "CercleSelection";
+        selection.transform.localScale = new Vector3(0, 0, 0);
+        selection.gameObject.transform.position = firstPositionClick;
 
+        distanceOfSelection = Vector3.Distance(firstPositionClick, lastPositionClick);
+        selection.transform.localScale = new Vector3(distanceOfSelection, distanceOfSelection, 0);
 
-                //test function 
-
-                ParticuleManager.Instance.ControlParticulePlayer(listOfSelectedParticulePlayer, destinationPoint);
-
-
-            }
-        }
     }
 
 
@@ -126,16 +122,16 @@ public class PlayerManager : Selection
         Debug.Log("mouse Up");
         isClicked = false;
         isSelected = true;
-
         if (destinationPoint == null)
         {
             destinationPoint = new GameObject().transform;
+            destinationPoint.position = new Vector3(1.5f, 0, 1.5f);
         }
-        //destinationPoint.position = new Vector3();
+        ParticuleManager.Instance.ControlParticulePlayer(listOfSelectedParticulePlayer, destinationPoint);
+        //isSelected = true;
         GameObject.Destroy(selection);
+
     }
-
-
 
 
 }
