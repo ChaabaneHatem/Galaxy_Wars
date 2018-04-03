@@ -54,7 +54,7 @@ public class PlayerManager : Selection
 
     public void UpdatePlayerManager(float dt)
     {
-        if (destinationPoint != null)
+        if (destinationPoint.position != null)
         {
             if (listOfSelectedParticulePlayer != null)
             {
@@ -85,12 +85,19 @@ public class PlayerManager : Selection
             distanceOfSelection = Vector3.Distance(firstPositionClick, lastPositionClick);
             selection.transform.localScale = new Vector3(distanceOfSelection, distanceOfSelection, 0);
         }
-        else if (isSelected)
+        if (isSelected)
         {
             if (Physics.Raycast(ray, out raycastHit))
             {
                 destinationPoint.position = raycastHit.point;
                 isSelected = false;
+
+
+                //test function 
+
+                ParticuleManager.Instance.ControlParticulePlayer(listOfSelectedParticulePlayer, destinationPoint);
+
+
             }
         }
     }
@@ -119,9 +126,15 @@ public class PlayerManager : Selection
         Debug.Log("mouse Up");
         isClicked = false;
         isSelected = true;
-        destinationPoint = new GameObject().transform;
+
+        if (destinationPoint == null)
+        {
+            destinationPoint = new GameObject().transform;
+        }
+        //destinationPoint.position = new Vector3();
         GameObject.Destroy(selection);
     }
+
 
 
 
