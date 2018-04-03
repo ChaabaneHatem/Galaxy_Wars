@@ -22,6 +22,7 @@ public class GameFlow : MonoBehaviour
         PlayerPlanetManager.Instance.InitPlayerPlanetManager(playerPlanets);
         EnemyPlanetManager.Instance.InitEnemyPlanetManager(EnemyPlanets);
         ParticuleManager.Instance.InitParticuleManager();
+        PlayerManager.Instance.InitPlayerManager();
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class GameFlow : MonoBehaviour
         CameraManager.Instance.UpdateCamera(deltaTime);
         PlayerPlanetManager.Instance.UpdatePlayerPlanetManager(deltaTime);
         ParticuleManager.Instance.UpdateParticuleManager(deltaTime);
+        PlayerManager.Instance.UpdatePlayerManager(deltaTime);
     }
 
     private void FixedUpdate()

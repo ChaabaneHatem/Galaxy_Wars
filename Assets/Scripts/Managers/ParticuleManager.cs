@@ -55,7 +55,6 @@ public class ParticuleManager
     public void UpdateParticuleManager(float dt)
     {
         Dictionary<Transform, Particule> listeParticulePerFrame = EnemyPlanetManager.Instance.UpdateEnemyPlanetsManager(dt);
-
         if (listeParticulePerFrame != null)
         {
             foreach (KeyValuePair<Transform, Particule> kv in listeParticulePerFrame)
@@ -63,7 +62,6 @@ public class ParticuleManager
                 listeParticuleEnemy.Add(kv.Key, kv.Value);
             }
         }
-
         ControlParticuleEnemy(dt, listeParticuleEnemy, listePlayerPlanets);
     }
 
@@ -118,5 +116,18 @@ public class ParticuleManager
 
     //    return new GameObject().transform;
     //}
+
+
+    public void ControlParticulePlayer(Dictionary<Transform, Particule> listSelectedParticulePlayer, Transform destination)
+    {
+        foreach (KeyValuePair<Transform, Particule> kv in listSelectedParticulePlayer)
+        {
+            if (kv.Key != null)
+            {
+                kv.Value.setParticuleDestination(destination);
+            }
+        }
+    }
+
 
 }
