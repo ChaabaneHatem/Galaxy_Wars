@@ -18,10 +18,10 @@ public class PlayerPlanet : Planet
         currentHealth = capacity;
         position = gameObject.transform;
         material = Resources.Load<Material>("Materials\\PlayerPlanet");
-        size = lvl * 2f;
+        size = lvl;
 
         //if the planet are static object they will not change when the game run
-        //gameObject.transform.localScale += new Vector3(size, size, size);
+        gameObject.transform.localScale = new Vector3(size, size, size);
     }
 
     public void UpdatePlayerPlanet(float dt)

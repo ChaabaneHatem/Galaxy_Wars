@@ -26,10 +26,11 @@ public class PlayerManager
     //sprite : cercle of the selection
     Selection selection;
     bool isClicked;
-    int layerMaskEnvironment;
+    int layerMaskToHit;
 
 
-    //list if selected 
+    //list of selected selected Particule 
+    List<Transform> selectedParticule;
 
     //the ParticulePlayer destination
     Transform destinationPoint;
@@ -37,8 +38,10 @@ public class PlayerManager
     public void InitPlayerManager()
     {
         isClicked = false;
+        selectedParticule = new List<Transform>();
         destinationPoint = new GameObject().transform;
-        layerMaskEnvironment = 1 << LayerMask.NameToLayer(GV.ENVIRONMENT_TAG);
+        layerMaskToHit = 1 << LayerMask.NameToLayer(GV.ENVIRONMENT_TAG) | 1 << LayerMask.NameToLayer(GV.PARENT_ENEMY_PLANET) | 1 << LayerMask.NameToLayer(GV.PARENT_PLAYER_PLANET)
+                                    | 1 << LayerMask.NameToLayer(GV.PARENT_PARTICULE_ENNEMY_TAG) | 1 << LayerMask.NameToLayer(GV.PARENT_PARTICULE_PLAYER_TAG);
     }
 
 
@@ -50,10 +53,10 @@ public class PlayerManager
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(ray, out raycastHit, Mathf.Infinity, layerMaskEnvironment))
+            if (Physics.Raycast(ray, out raycastHit, Mathf.Infinity, layerMaskToHit))
             {
                 isClicked = true;
-                Debug.Log("mouseDown && mode selection particule");
+                //Debug.Log("mouseDown && mode selection particule");
                 //create the sprite cercle and get the conponemt selection and init it 
                 GameObject selectionSprite = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\SpriteSelection\\Selection"));
                 selectionSprite.transform.position = raycastHit.point;
@@ -65,23 +68,23 @@ public class PlayerManager
         }
         if (Input.GetMouseButtonDown(1))
         {
-            if (Physics.Raycast(ray, out raycastHit, Mathf.Infinity, layerMaskEnvironment))
+            if (Physics.Raycast(ray, out raycastHit, Mathf.Infinity, layerMaskToHit))
             {
-                Debug.Log("mouseDown && mode selection destinaion");
+                //Debug.Log("mouseDown && mode selection destinaion");
                 destinationPoint.position = raycastHit.point;
-                if (selection.listOfSelectedParticulePlayer != null)
-                    ParticuleManager.Instance.ControlParticulePlayer(GetDictionaryParticuleFromList(selection.listOfSelectedParticulePlayer), destinationPoint);
+                if (selectedParticule != null)
+                    ParticuleManager.Instance.ControlParticulePlayer(GetDictionaryParticuleFromList(selectedParticule), destinationPoint);
             }
         }
 
 
         if (isClicked)
         {
-            if (Physics.Raycast(ray, out raycastHit, Mathf.Infinity, layerMaskEnvironment))
+            if (Physics.Raycast(ray, out raycastHit, Mathf.Infinity, layerMaskToHit))
             {
                 if (selection != null)
                 {
-                    Debug.Log("raypoint : " + raycastHit.point);
+                    //Debug.Log("raypoint : " + raycastHit.point);
                     selection.UpdateSelection(raycastHit.point);
 
                 }
@@ -91,16 +94,20 @@ public class PlayerManager
 
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("mouse Up && mode selelection particule");
+            //Debug.Log("mouse Up && mode selelection particule");
             isClicked = false;
 
             //destroy the sprite cerce
-
+            if (selection.listOfSelectedParticulePlayer != null)
+            {
+                selectedParticule = selection.listOfSelectedParticulePlayer;
+            }
+            GameObject.Destroy(selection.gameObject);
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            Debug.Log("mouse Up && mode selelection destination");
+            //Debug.Log("mouse Up && mode selelection destination");
             selection.listOfSelectedParticulePlayer.Clear();
         }
 
