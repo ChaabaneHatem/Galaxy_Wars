@@ -189,7 +189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPlanets: {fileID: 140876944}
-  EnemyPlanets: {fileID: 251096423}
+  enemyPlanets: {fileID: 251096423}
+  neutralPlanets: {fileID: 1278443126}
 --- !u!1 &148720690
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +323,7 @@ Prefab:
     - target: {fileID: 114831174649579454, guid: 7901b396475167c4b8a52f5448a86604,
         type: 2}
       propertyPath: lvl
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7901b396475167c4b8a52f5448a86604, type: 2}
@@ -461,7 +462,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4097333176286646, guid: 577195c394b97b14595dc7473f4d07cc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 13.61
+      value: 2.94
       objectReference: {fileID: 0}
     - target: {fileID: 4097333176286646, guid: 577195c394b97b14595dc7473f4d07cc, type: 2}
       propertyPath: m_LocalPosition.y
@@ -469,7 +470,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4097333176286646, guid: 577195c394b97b14595dc7473f4d07cc, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 10.12
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4097333176286646, guid: 577195c394b97b14595dc7473f4d07cc, type: 2}
       propertyPath: m_LocalRotation.x
@@ -599,6 +600,11 @@ Prefab:
       propertyPath: m_Name
       value: 'EnemyPlanet '
       objectReference: {fileID: 0}
+    - target: {fileID: 114382073829607754, guid: 68f083636ff4e4d48bc94282b52f0a52,
+        type: 2}
+      propertyPath: lvl
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68f083636ff4e4d48bc94282b52f0a52, type: 2}
   m_IsPrefabParent: 0
@@ -622,7 +628,7 @@ GameObject:
   - component: {fileID: 1278443126}
   m_Layer: 0
   m_Name: NeutralPlanets
-  m_TagString: Untagged
+  m_TagString: ParentNeutralPlanet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -679,6 +685,11 @@ Prefab:
     - target: {fileID: 4520351666118032, guid: 68f083636ff4e4d48bc94282b52f0a52, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114382073829607754, guid: 68f083636ff4e4d48bc94282b52f0a52,
+        type: 2}
+      propertyPath: lvl
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68f083636ff4e4d48bc94282b52f0a52, type: 2}
@@ -907,13 +918,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1878531674}
-  m_LocalRotation: {x: 0.69548535, y: 0.027950412, z: -0.026755242, w: 0.7174978}
+  m_LocalRotation: {x: 0.70657754, y: 0.027353948, z: -0.027353948, w: 0.70657754}
   m_LocalPosition: {x: 2.9131238, y: 20.08, z: 2.4846363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 5.3250003, z: 0.89100003}
 --- !u!1001 &1891215921
 Prefab:
   m_ObjectHideFlags: 0

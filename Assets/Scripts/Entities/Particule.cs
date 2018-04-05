@@ -37,7 +37,7 @@ public class Particule : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GetDamageOrEnergy(other.gameObject);
+        //GetDamageOrEnergy(other.gameObject);
         CollisionOtherParticule(other.gameObject);
     }
 

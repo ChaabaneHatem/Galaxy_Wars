@@ -2,52 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPlanetManager
+public class EnemyPlanetManager : PlanetManager
 {
-    #region singleton
-    private static EnemyPlanetManager instance;
-
-    private EnemyPlanetManager() { }
-
-    public static EnemyPlanetManager Instance
-    {
-        get
-        {
-            if (instance == null)
-                instance = new EnemyPlanetManager();
-
-            return instance;
-        }
-    }
-    #endregion singleton
 
     public Transform EnemyPlanets;
-    public Dictionary<Transform, EnemyPlanet> listeEnemyPlanets;
 
 
-    public void InitEnemyPlanetManager(Transform _enemyPlanets)
+    public override void InitPlanet(Transform _enemyPlanets)
     {
         EnemyPlanets = _enemyPlanets;
 
-        listeEnemyPlanets = new Dictionary<Transform, EnemyPlanet>();
+        //listeEnemyPlanets = new Dictionary<Transform, EnemyPlanet>();
+        listPlanetForEveryManager = new Dictionary<Transform, Planet>();
         foreach (Transform enemyPlanet in EnemyPlanets)
         {
             if (enemyPlanet != null)
             {
                 EnemyPlanet enemyPlanetComponemt = enemyPlanet.GetComponent<EnemyPlanet>();
-                enemyPlanetComponemt.initEnemyPlanet();
-                listeEnemyPlanets.Add(enemyPlanet, enemyPlanetComponemt);
+                enemyPlanetComponemt.InitPlanet();
+                //listeEnemyPlanets.Add(enemyPlanet, enemyPlanetComponemt);
+                listPlanetForEveryManager.Add(enemyPlanet, enemyPlanetComponemt);
             }
         }
 
 
     }
 
-    public Dictionary<Transform, Particule> UpdateEnemyPlanetsManager(float dt)
+    public override Dictionary<Transform, Particule> UpdateEnemyPlanetsManager(float dt)
     {
         Dictionary<Transform, Particule> listeAllParticule = new Dictionary<Transform, Particule>();
 
-        foreach (KeyValuePair<Transform, EnemyPlanet> kv in listeEnemyPlanets)
+        foreach (KeyValuePair<Transform, Planet> kv in listPlanetForEveryManager)
         {
             if (kv.Key != null)
             {
@@ -70,6 +55,37 @@ public class EnemyPlanetManager
         return null;
     }
 
+    //remove enemy planet
+    public override void RemovePlanet(Transform planetToRemove)
+    {
+        if (listPlanetForEveryManager.ContainsKey(planetToRemove))
+        {
+            listPlanetForEveryManager.Remove(planetToRemove);
+            GameObject.Destroy(planetToRemove.gameObject);
+        }
+    }
 
+
+
+    //add new enemy planet to the list 
+    public override void AddPlanet(Transform positioToAddThePlanet)
+    {
+        GameObject enemyPlanet = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Entities\\EnemyPlanet"));
+        enemyPlanet.name = "EnemyPlanet";
+        enemyPlanet.tag = GV.ENEMY_PLANET_TAG;
+        enemyPlanet.layer = LayerMask.NameToLayer(GV.ENEMY_PLANET_TAG);
+        enemyPlanet.transform.position = positioToAddThePlanet.position;
+        enemyPlanet.transform.SetParent(GameObject.FindGameObjectWithTag(GV.PARENT_ENEMY_PLANET).transform);
+        EnemyPlanet enemyPlanetComponent = enemyPlanet.GetComponent<EnemyPlanet>();
+        if (enemyPlanetComponent == null)
+        {
+            Debug.LogError("Enemy planet component not attached to the new planet " + enemyPlanet.name);
+        }
+        else
+        {
+            enemyPlanetComponent.InitPlanet();
+            listPlanetForEveryManager.Add(enemyPlanet.transform, enemyPlanetComponent);
+        }
+    }
 
 }

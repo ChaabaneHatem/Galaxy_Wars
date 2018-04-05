@@ -27,9 +27,34 @@ public class Planet : MonoBehaviour
     public Input ProgressBar;
 
 
+    //virtual init planet function
+    public virtual void InitPlanet()
+    {
+
+    }
+
+
+    //virtual update planet 
+    public virtual void UpdatePlanet(float dt)
+    {
+
+    }
+
+
+    //virtual update the exception enemy planet 
+    public virtual Dictionary<Transform, Particule> UpdateEnemyPlanet(float dt)
+    {
+        return new Dictionary<Transform, Particule>();
+    }
+
+    //gerer the collision for every planet type 
     public virtual void OnTriggerEnter(Collider other)
     {
-        
+
     }
+
+
+
+
 
 }

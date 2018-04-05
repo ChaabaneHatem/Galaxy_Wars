@@ -20,14 +20,6 @@ public class Selection : MonoBehaviour
         rayonOfSelection = 0;
     }
 
-    //public void CreateSelection(Vector3 _firstPositionClick)
-    //{
-    //    firstPositionClick = _firstPositionClick;
-    //    selectionSprite = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\SpriteSelection\\Selection"));
-    //    selectionSprite.transform.position = firstPositionClick;
-    //    selectionSprite.gameObject.name = "cercleSelection";
-    //    selectionSprite.SetActive(false);
-    //}
 
     public void UpdateSelection(Vector3 _currentPositionOfTheMouse)
     {
@@ -42,9 +34,6 @@ public class Selection : MonoBehaviour
     {
         if (other.gameObject.CompareTag(GV.PLAYER_PARTICULE_TAG))
         {
-            //Debug.Log("enterTrigger");
-            //Particule particuleComponent = other.gameObject.GetComponent<Particule>();
-
             if (other.gameObject != null)
             {
                 if (!listOfSelectedParticulePlayer.Contains(other.gameObject.transform))
@@ -61,9 +50,6 @@ public class Selection : MonoBehaviour
     {
         if (other.gameObject.CompareTag(GV.PLAYER_PARTICULE_TAG))
         {
-            //Debug.Log("enterTrigger");
-            //Particule particuleComponent = other.gameObject.GetComponent<Particule>();
-
             if (other.gameObject != null)
             {
                 listOfSelectedParticulePlayer.Remove(other.gameObject.transform);

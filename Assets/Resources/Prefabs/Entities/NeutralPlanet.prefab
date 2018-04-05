@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135654113327962406}
   - component: {fileID: 23745872178132112}
   - component: {fileID: 54556436255660110}
+  - component: {fileID: 114025209638002404}
   m_Layer: 13
   m_Name: NeutralPlanet
   m_TagString: NeutralPlanet
@@ -99,6 +100,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114025209638002404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249430022153832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b08dc5f35b35a42b7f54f9168f8825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  lvl: 1
+  capacity: 0
+  currentHealth: 0
+  position: {fileID: 0}
+  material: {fileID: 0}
+  size: 0
+  nbParticulePlayer: 0
+  nbParticuleEnemy: 0
 --- !u!135 &135654113327962406
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -106,7 +127,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1249430022153832}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

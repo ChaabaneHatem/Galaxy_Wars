@@ -5,10 +5,13 @@ using UnityEngine;
 public class GV
 {
 
+    //information of every team
+    public enum TEAM { ENEMY, PLAYER, NEUTRAL };
+
     //planet informations
-    public enum PLANET_TYPE { ENEMY, PLAYER };
+    public enum PLANET_TYPE { ENEMY, PLAYER, NEUTRAL };
     public static readonly float PLANET_MAX_PARTICULE_PER_LEVEL = 25;
-    public static readonly float PLANET_TIME_GENERATION_PARTICULE = 10;
+    public static readonly float PLANET_TIME_GENERATION_PARTICULE = 1;
 
     public static readonly string PLAYER_PLANET_TAG = "PlayerPlanet";
     public static readonly string PARENT_PLAYER_PLANET = "ParentPlayerPlanet";
@@ -18,6 +21,10 @@ public class GV
     public static readonly string PARENT_ENEMY_PLANET = "ParentEnemyPlanet";
     public static readonly string PARENT_PARTICULE_ENNEMY_TAG = "ParentParticuleEnemy";
     public static readonly float TIME_ENEMY_TO_ATTACK = 30;
+
+
+    public static readonly string NEUTRAL_PLANET_TAG = "NeutralPlanet";
+    public static readonly string PARENT_NEUTRAL_PLANET = "ParentNeutralPlanet";
 
 
     //particule informations

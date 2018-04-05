@@ -8,7 +8,7 @@ public class PlayerPlanet : Planet
     private float currentTime;
     private static Transform parentParticulePlayer;
 
-    public void initPlayerPlanet()
+    public override void InitPlanet()
     {
         nbTotalParticulePlayer = 0;
         currentTime = 0;
@@ -24,19 +24,9 @@ public class PlayerPlanet : Planet
         gameObject.transform.localScale = new Vector3(size, size, size);
     }
 
-    public void UpdatePlayerPlanet(float dt)
+    public override void UpdatePlanet(float dt)
     {
         GenerationParticule(dt);
-
-
-
-        //test partie 
-        if (currentHealth <= 0)
-        {
-            Debug.LogError("planet destroyed");
-            GameObject.Destroy(gameObject);
-            //GameObject.Destroy(this.gameObject);
-        }
     }
 
 
@@ -75,7 +65,36 @@ public class PlayerPlanet : Planet
     }
 
 
-    //function plus detail with get damage and get energy a faiire ....
+    //gerrer la collision with a particule 
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other != null)
+        {
+            if (other.gameObject.CompareTag(GV.PLAYER_PARTICULE_TAG))
+            {
+                Particule particulePlayer = other.gameObject.GetComponent<Particule>();
+                if (currentHealth < capacity)
+                {
+                    currentHealth += particulePlayer.value;
+                    GameObject.Destroy(other.gameObject);
+                }
+            }
+            if (other.gameObject.CompareTag(GV.ENEMY_PARTICULE_TAG))
+            {
+                Particule particuleEnemy = other.gameObject.GetComponent<Particule>();
+                currentHealth -= particuleEnemy.value;
+                GameObject.Destroy(other.gameObject);
+            }
+            if (currentHealth == 0)
+            {
+                Debug.Log("remove this planet player and add a neutral planet ");
+                PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).AddPlanet(transform);
+                PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.PLAYER).RemovePlanet(transform);
+            }
+        }
+    }
+
+
 
 
 }

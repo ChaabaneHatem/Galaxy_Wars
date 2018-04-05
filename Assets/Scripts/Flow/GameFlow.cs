@@ -12,15 +12,22 @@ public class GameFlow : MonoBehaviour
     public Transform playerPlanets;
 
     //all enemy planets 
-    public Transform EnemyPlanets;
+    public Transform enemyPlanets;
 
+
+    //all neutral planets
+    public Transform neutralPlanets;
 
     // Use this for initialization
     void Start()
     {
         CameraManager.Instance.init();
-        PlayerPlanetManager.Instance.InitPlayerPlanetManager(playerPlanets);
-        EnemyPlanetManager.Instance.InitEnemyPlanetManager(EnemyPlanets);
+        PlanetManagerMaster.Instance.InitPlanetManagerMaster();
+        PlanetManagerMaster.Instance.InitPlayerPlanetManager(playerPlanets);
+        PlanetManagerMaster.Instance.InitEnemyPlanetManager(enemyPlanets);
+        PlanetManagerMaster.Instance.InitNeutralPlanetManager(neutralPlanets);
+        //PlayerPlanetManager.Instance.InitPlayerPlanetManager(playerPlanets);
+        //EnemyPlanetManager.Instance.InitEnemyPlanetManager(EnemyPlanets);
         ParticuleManager.Instance.InitParticuleManager();
         PlayerManager.Instance.InitPlayerManager();
     }
@@ -30,7 +37,8 @@ public class GameFlow : MonoBehaviour
     {
         deltaTime = Time.deltaTime;
         CameraManager.Instance.UpdateCamera(deltaTime);
-        PlayerPlanetManager.Instance.UpdatePlayerPlanetManager(deltaTime);
+        PlanetManagerMaster.Instance.UpdatePlanetManager(deltaTime);
+        //PlayerPlanetManager.Instance.UpdatePlayerPlanetManager(deltaTime);
         ParticuleManager.Instance.UpdateParticuleManager(deltaTime);
         PlayerManager.Instance.UpdatePlayerManager();
     }

@@ -14,6 +14,7 @@ TagManager:
   - ParentPlayerPlanet
   - ParentEnemyPlanet
   - Environment
+  - ParentNeutralPlanet
   layers:
   - Default
   - TransparentFX

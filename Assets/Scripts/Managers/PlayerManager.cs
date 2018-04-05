@@ -102,13 +102,15 @@ public class PlayerManager
             {
                 selectedParticule = selection.listOfSelectedParticulePlayer;
             }
-            GameObject.Destroy(selection.gameObject);
+            if (selection != null)
+                GameObject.Destroy(selection.gameObject);
         }
 
         if (Input.GetMouseButtonUp(1))
         {
             //Debug.Log("mouse Up && mode selelection destination");
-            selection.listOfSelectedParticulePlayer.Clear();
+            if (selection.listOfSelectedParticulePlayer != null)
+                selection.listOfSelectedParticulePlayer.Clear();
         }
 
     }

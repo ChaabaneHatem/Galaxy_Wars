@@ -10,7 +10,7 @@ public class EnemyPlanet : Planet
     private static Transform parentParticuleEnemy;
 
 
-    public void initEnemyPlanet()
+    public override void InitPlanet()
     {
         nbTotalParticuleEnemy = 0;
         currentTime = 0;
@@ -28,7 +28,7 @@ public class EnemyPlanet : Planet
 
 
 
-    public Dictionary<Transform, Particule> UpdateEnemyPlanet(float dt)
+    public override Dictionary<Transform, Particule> UpdateEnemyPlanet(float dt)
     {
         return GenerationParticule(dt);
     }
@@ -68,6 +68,35 @@ public class EnemyPlanet : Planet
     }
 
 
+    //gerer la collision with a particule 
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other != null)
+        {
+            if (other.gameObject.CompareTag(GV.PLAYER_PARTICULE_TAG))
+            {
+                Particule particulePlayer = other.gameObject.GetComponent<Particule>();
+                currentHealth -= particulePlayer.value;
+                GameObject.Destroy(other.gameObject);
 
+            }
+            if (other.gameObject.CompareTag(GV.ENEMY_PARTICULE_TAG))
+            {
+                Particule particuleEnemy = other.gameObject.GetComponent<Particule>();
+                if (currentHealth < capacity)
+                {
+                    currentHealth += particuleEnemy.value;
+                    GameObject.Destroy(other.gameObject);
+                }
+            }
+
+            if (currentHealth == 0)
+            {
+                Debug.Log("destroy this enemy planet and add a neural planet ");
+                PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).AddPlanet(transform);
+                PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.ENEMY).RemovePlanet(transform);
+            }
+        }
+    }
 
 }
