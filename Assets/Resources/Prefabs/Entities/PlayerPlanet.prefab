@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  maxLevel: 1
   lvl: 1
   capacity: 0
   currentHealth: 0

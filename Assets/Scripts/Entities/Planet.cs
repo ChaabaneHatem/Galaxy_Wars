@@ -8,6 +8,9 @@ public class Planet : MonoBehaviour
 
     //type of planet 
     public GV.PLANET_TYPE type;
+    //max level of a planet 
+    public float maxLevel;
+
     //level of planet
     [Range(1, 3)]
     public float lvl;
@@ -53,8 +56,13 @@ public class Planet : MonoBehaviour
 
     }
 
-
-
+    //function upgrade level
+    public void UpgradeLevel(float currentLevel)
+    {
+        capacity = currentLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL;
+        size = lvl;
+        gameObject.transform.localScale = new Vector3(size, size, size);
+    }
 
 
 }

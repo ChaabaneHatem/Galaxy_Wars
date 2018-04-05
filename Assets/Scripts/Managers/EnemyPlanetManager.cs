@@ -68,7 +68,7 @@ public class EnemyPlanetManager : PlanetManager
 
 
     //add new enemy planet to the list 
-    public override void AddPlanet(Transform positioToAddThePlanet)
+    public override void AddPlanet(Transform positioToAddThePlanet, float maxLevel)
     {
         GameObject enemyPlanet = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Entities\\EnemyPlanet"));
         enemyPlanet.name = "EnemyPlanet";
@@ -84,6 +84,7 @@ public class EnemyPlanetManager : PlanetManager
         else
         {
             enemyPlanetComponent.InitPlanet();
+            enemyPlanetComponent.maxLevel = maxLevel;
             listPlanetForEveryManager.Add(enemyPlanet.transform, enemyPlanetComponent);
         }
     }

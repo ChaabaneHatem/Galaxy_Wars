@@ -42,7 +42,7 @@ public class NeutralPlanetManager : PlanetManager
 
 
     //add new neutral planet 
-    public override void AddPlanet(Transform positioToAddThePlanet)
+    public override void AddPlanet(Transform positioToAddThePlanet, float _maxLevel)
     {
         GameObject neutralPlanet = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Entities\\NeutralPlanet"));
         neutralPlanet.name = "NeutralPlanet";
@@ -58,6 +58,7 @@ public class NeutralPlanetManager : PlanetManager
         else
         {
             neutralPlanetComponent.InitPlanet();
+            neutralPlanetComponent.maxLevel = _maxLevel;
             listPlanetForEveryManager.Add(neutralPlanet.transform, neutralPlanetComponent);
         }
     }

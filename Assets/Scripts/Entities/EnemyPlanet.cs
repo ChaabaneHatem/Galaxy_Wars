@@ -15,7 +15,7 @@ public class EnemyPlanet : Planet
         nbTotalParticuleEnemy = 0;
         currentTime = 0;
         type = GV.PLANET_TYPE.ENEMY;
-        //lvl = 2;
+        lvl = 1;
         capacity = lvl * GV.PLANET_MAX_PARTICULE_PER_LEVEL;
         currentHealth = capacity;
         position = gameObject.transform;
@@ -83,7 +83,7 @@ public class EnemyPlanet : Planet
             if (other.gameObject.CompareTag(GV.ENEMY_PARTICULE_TAG))
             {
                 Particule particuleEnemy = other.gameObject.GetComponent<Particule>();
-                if (currentHealth < capacity)
+                if (lvl < maxLevel)
                 {
                     currentHealth += particuleEnemy.value;
                     GameObject.Destroy(other.gameObject);
@@ -93,8 +93,18 @@ public class EnemyPlanet : Planet
             if (currentHealth == 0)
             {
                 Debug.Log("destroy this enemy planet and add a neural planet ");
-                PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).AddPlanet(transform);
+                PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).AddPlanet(transform, maxLevel);
                 PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.ENEMY).RemovePlanet(transform);
+            }
+            if (lvl < maxLevel)
+            {
+                float nextLevel = lvl + 1;
+                float nextLevelCapacity = nextLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL;
+                if (currentHealth == nextLevelCapacity)
+                {
+                    lvl++;
+                    UpgradeLevel(lvl);
+                }
             }
         }
     }

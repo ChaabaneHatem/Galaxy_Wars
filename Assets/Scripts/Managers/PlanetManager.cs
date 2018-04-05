@@ -32,12 +32,12 @@ public class PlanetManager
     //remove planet 
     public virtual void RemovePlanet(Transform planetToRemove)
     {
-        
+
     }
 
 
     //add planet 
-    public virtual void AddPlanet(Transform positioToAddThePlanet)
+    public virtual void AddPlanet(Transform positioToAddThePlanet, float _maxLevel)
     {
 
     }

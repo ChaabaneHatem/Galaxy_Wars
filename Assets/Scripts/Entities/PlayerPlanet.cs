@@ -13,7 +13,7 @@ public class PlayerPlanet : Planet
         nbTotalParticulePlayer = 0;
         currentTime = 0;
         type = GV.PLANET_TYPE.PLAYER;
-        //lvl = 2;
+        lvl = 1;
         capacity = lvl * GV.PLANET_MAX_PARTICULE_PER_LEVEL;
         currentHealth = capacity;
         position = gameObject.transform;
@@ -73,7 +73,7 @@ public class PlayerPlanet : Planet
             if (other.gameObject.CompareTag(GV.PLAYER_PARTICULE_TAG))
             {
                 Particule particulePlayer = other.gameObject.GetComponent<Particule>();
-                if (currentHealth < capacity)
+                if (lvl < maxLevel)
                 {
                     currentHealth += particulePlayer.value;
                     GameObject.Destroy(other.gameObject);
@@ -88,8 +88,18 @@ public class PlayerPlanet : Planet
             if (currentHealth == 0)
             {
                 Debug.Log("remove this planet player and add a neutral planet ");
-                PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).AddPlanet(transform);
+                PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).AddPlanet(transform, maxLevel);
                 PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.PLAYER).RemovePlanet(transform);
+            }
+            if (lvl < maxLevel)
+            {
+                float nextLevel = lvl + 1;
+                float nextLevelCapacity = nextLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL;
+                if (currentHealth == nextLevelCapacity)
+                {
+                    lvl++;
+                    UpgradeLevel(lvl);
+                }
             }
         }
     }

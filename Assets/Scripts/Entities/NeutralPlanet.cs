@@ -56,7 +56,7 @@ public class NeutralPlanet : Planet
                     if (currentHealth == capacity)
                     {
                         Debug.Log("remove the neutral plant and add a player planet in the some poition");
-                        PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.PLAYER).AddPlanet(transform);
+                        PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.PLAYER).AddPlanet(transform, maxLevel);
                         PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).RemovePlanet(transform);
                     }
                 }
@@ -66,7 +66,7 @@ public class NeutralPlanet : Planet
                     if (currentHealth == capacity)
                     {
                         Debug.Log("remove the neutral planet and add a enemy planet in the some position");
-                        PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.ENEMY).AddPlanet(transform);
+                        PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.ENEMY).AddPlanet(transform, maxLevel);
                         PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).RemovePlanet(transform);
                     }
                 }

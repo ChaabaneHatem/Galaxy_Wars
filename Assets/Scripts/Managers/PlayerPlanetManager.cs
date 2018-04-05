@@ -51,7 +51,7 @@ public class PlayerPlanetManager : PlanetManager
     }
 
 
-    public override void AddPlanet(Transform positioToAddThePlanet)
+    public override void AddPlanet(Transform positioToAddThePlanet, float maxLevel)
     {
         GameObject playerPlanet = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Entities\\PlayerPlanet"));
         playerPlanet.name = "PlayerPlanet";
@@ -67,6 +67,7 @@ public class PlayerPlanetManager : PlanetManager
         else
         {
             playerPlanetComponent.InitPlanet();
+            playerPlanetComponent.maxLevel = maxLevel;
             listPlanetForEveryManager.Add(playerPlanet.transform, playerPlanetComponent);
         }
     }
