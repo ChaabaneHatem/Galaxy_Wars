@@ -8,8 +8,6 @@ public class PlayerPlanetManager : PlanetManager
 
     //all player planets given by the game flow as transform parent 
     public Transform playerPlanets;
-    //public Dictionary<Transform, PlayerPlanet> listePlayerPlanets;
-
 
     public override void InitPlanet(Transform _PlayerPlanets)
     {
@@ -40,7 +38,7 @@ public class PlayerPlanetManager : PlanetManager
         }
     }
 
-    //remove a planet from the list anf in the game 
+    //remove a planet from the list and in the game 
     public override void RemovePlanet(Transform planetToRemove)
     {
         if (listPlanetForEveryManager.ContainsKey(planetToRemove))

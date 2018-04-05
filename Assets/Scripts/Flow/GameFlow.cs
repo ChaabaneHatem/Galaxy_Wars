@@ -18,6 +18,9 @@ public class GameFlow : MonoBehaviour
     //all neutral planets
     public Transform neutralPlanets;
 
+
+    //all SuperNova 
+    public Transform superNovaPlanets;
     // Use this for initialization
     void Start()
     {
@@ -26,6 +29,7 @@ public class GameFlow : MonoBehaviour
         PlanetManagerMaster.Instance.InitPlayerPlanetManager(playerPlanets);
         PlanetManagerMaster.Instance.InitEnemyPlanetManager(enemyPlanets);
         PlanetManagerMaster.Instance.InitNeutralPlanetManager(neutralPlanets);
+        PlanetManagerMaster.Instance.InitSuperNovaPlanetManager(superNovaPlanets);
         //PlayerPlanetManager.Instance.InitPlayerPlanetManager(playerPlanets);
         //EnemyPlanetManager.Instance.InitEnemyPlanetManager(EnemyPlanets);
         ParticuleManager.Instance.InitParticuleManager();

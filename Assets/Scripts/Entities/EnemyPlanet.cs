@@ -78,6 +78,7 @@ public class EnemyPlanet : Planet
                 Particule particulePlayer = other.gameObject.GetComponent<Particule>();
                 currentHealth -= particulePlayer.value;
                 GameObject.Destroy(other.gameObject);
+                PlayerPlanet.nbTotalParticulePlayer--;
 
             }
             if (other.gameObject.CompareTag(GV.ENEMY_PARTICULE_TAG))
@@ -87,6 +88,7 @@ public class EnemyPlanet : Planet
                 {
                     currentHealth += particuleEnemy.value;
                     GameObject.Destroy(other.gameObject);
+                    nbTotalParticuleEnemy--;
                 }
             }
 

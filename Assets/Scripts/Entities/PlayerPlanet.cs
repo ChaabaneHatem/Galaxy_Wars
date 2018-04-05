@@ -6,7 +6,7 @@ public class PlayerPlanet : Planet
 {
     public static float nbTotalParticulePlayer;
     private float currentTime;
-    private static Transform parentParticulePlayer;
+    public static Transform parentParticulePlayer;
 
     public override void InitPlanet()
     {
@@ -77,6 +77,7 @@ public class PlayerPlanet : Planet
                 {
                     currentHealth += particulePlayer.value;
                     GameObject.Destroy(other.gameObject);
+                    nbTotalParticulePlayer--;
                 }
             }
             if (other.gameObject.CompareTag(GV.ENEMY_PARTICULE_TAG))
@@ -84,6 +85,7 @@ public class PlayerPlanet : Planet
                 Particule particuleEnemy = other.gameObject.GetComponent<Particule>();
                 currentHealth -= particuleEnemy.value;
                 GameObject.Destroy(other.gameObject);
+                EnemyPlanet.nbTotalParticuleEnemy--;
             }
             if (currentHealth == 0)
             {

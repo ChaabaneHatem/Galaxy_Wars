@@ -55,6 +55,13 @@ public class PlanetManagerMaster
     }
 
 
+    public void InitSuperNovaPlanetManager(Transform _AllSuperNovaPlanetTransform)
+    {
+        SuperNovaPlanetManager superNovaPlanetManager = new SuperNovaPlanetManager();
+        superNovaPlanetManager.InitPlanet(_AllSuperNovaPlanetTransform);
+        listePlanetManager.Add(GV.TEAM.SUPERNOVA, superNovaPlanetManager);
+    }
+
     public void UpdatePlanetManager(float dt)
     {
         foreach (KeyValuePair<GV.TEAM, PlanetManager> kv in listePlanetManager)
