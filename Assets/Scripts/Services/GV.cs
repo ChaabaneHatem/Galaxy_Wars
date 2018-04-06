@@ -16,20 +16,25 @@ public class GV
     public static readonly string PLAYER_PLANET_TAG = "PlayerPlanet";
     public static readonly string PARENT_PLAYER_PLANET = "ParentPlayerPlanet";
     public static readonly string PARENT_PARTICULE_PLAYER_TAG = "ParentParticulePlayer";
+    public static readonly string PLAYER_PLANET_MATERIAL = "Materials\\PlayerPlanet";
     //enemy planet
     public static readonly string ENEMY_PLANET_TAG = "EnemyPlanet";
     public static readonly string PARENT_ENEMY_PLANET = "ParentEnemyPlanet";
     public static readonly string PARENT_PARTICULE_ENNEMY_TAG = "ParentParticuleEnemy";
     public static readonly float TIME_ENEMY_TO_ATTACK = 30;
+    public static readonly string ENEMY_PLANET_MATERIAL = "Materials\\EnemyPlanet";
 
     //neutral planet
     public static readonly string NEUTRAL_PLANET_TAG = "NeutralPlanet";
     public static readonly string PARENT_NEUTRAL_PLANET = "ParentNeutralPlanet";
+    public static readonly string NEUTRAL_PLANET_MATERIAL = "Materials\\NeutralPlanet";
     //super nova planet 
     public static readonly string SUPERNOVA_PLANET_TAG = "SuperNovaPlanet";
     public static readonly string PARENT_SUPERNOVA_PLANET = "ParentSuperNovaPlanet";
     public static readonly float SUPERNOVA_MAX_PARTICULE_PER_LEVEL = PLANET_MAX_PARTICULE_PER_LEVEL * 2;
     public static readonly float SUPERNOVA_COEFFICIENT = 2;
+    public static readonly string SUPERNOVA_PLANET_MATERIAL = "Materials\\SuperNovaPlanet";
+
 
 
     //particule informations

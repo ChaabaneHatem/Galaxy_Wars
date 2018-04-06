@@ -22,6 +22,9 @@ public class PlayerPlanet : Planet
 
         //if the planet are static object they will not change when the game run
         gameObject.transform.localScale = new Vector3(size, size, size);
+
+        //Update the health Bar
+        UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, material);
     }
 
     public override void UpdatePlanet(float dt)
@@ -46,7 +49,7 @@ public class PlayerPlanet : Planet
 
             GameObject particule = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Entities\\ParticulePlanet"));
             particule.transform.SetParent(parentParticulePlayer);
-            particule.transform.position = gameObject.transform.position + Random.onUnitSphere.normalized * 1.5f;
+            particule.transform.position = gameObject.transform.position + Random.onUnitSphere.normalized * 1.5f * gameObject.transform.localScale.magnitude / 2;
             Particule particuleComponent = particule.GetComponent<Particule>();
             if (particuleComponent == null)
             {
@@ -107,6 +110,10 @@ public class PlayerPlanet : Planet
                     UpgradeLevel(lvl);
                 }
             }
+
+            //Update the health Bar
+            UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, material);
+
         }
     }
 

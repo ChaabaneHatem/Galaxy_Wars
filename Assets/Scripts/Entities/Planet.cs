@@ -26,8 +26,11 @@ public class Planet : MonoBehaviour
     //size of planet 
     public float size;
 
-    // HUD progress bar 
-    public Input ProgressBar;
+    //// HUD progress bar 
+    //public Input ProgressBar;
+
+    //health bar Transform
+    public Transform healthBarTransform;
 
 
     //virtual init planet function
@@ -64,5 +67,16 @@ public class Planet : MonoBehaviour
         gameObject.transform.localScale = new Vector3(size, size, size);
     }
 
+
+    public virtual void UpdateHealth(Transform _healthBar, float _currentHealth, float _capacity, Material _material)
+    {
+        Transform foreground = _healthBar.GetChild(1);
+        Transform backround = _healthBar.GetChild(0);
+        foreground.GetComponent<Renderer>().material = _material;
+        float deltaXScale = (_currentHealth * backround.localScale.x) / _capacity;
+        float deltaxPosition = deltaXScale / 2;
+        foreground.localScale = new Vector3(deltaXScale, foreground.localScale.y, foreground.localScale.z);
+        //foreGround.localPosition = foreGround.localPosition - new Vector3(deltaxPosition, 0, 0);
+    }
 
 }

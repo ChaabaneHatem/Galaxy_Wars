@@ -23,6 +23,10 @@ public class NeutralPlanet : Planet
 
         //if the planet are static object they will not change when the game run
         gameObject.transform.localScale = new Vector3(size, size, size);
+
+        //Init Health
+        //Update Helath Bar
+        UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.NEUTRAL_PLANET_MATERIAL));
     }
 
     public override void UpdatePlanet(float dt)
@@ -59,6 +63,9 @@ public class NeutralPlanet : Planet
                         PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.PLAYER).AddPlanet(transform, maxLevel);
                         PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).RemovePlanet(transform);
                     }
+
+                    //Update Helath Bar
+                    UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.PLAYER_PLANET_MATERIAL));
                 }
                 if (nbParticulePlayer < nbParticuleEnemy)
                 {
@@ -69,10 +76,15 @@ public class NeutralPlanet : Planet
                         PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.ENEMY).AddPlanet(transform, maxLevel);
                         PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).RemovePlanet(transform);
                     }
+
+                    //Update Helath Bar
+                    UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.ENEMY_PLANET_MATERIAL));
                 }
                 if (nbParticulePlayer == nbParticuleEnemy)
                 {
                     currentHealth = 0;
+                    //Update Helath Bar
+                    UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.NEUTRAL_PLANET_MATERIAL));
                 }
             }
         }

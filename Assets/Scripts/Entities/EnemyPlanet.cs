@@ -24,6 +24,8 @@ public class EnemyPlanet : Planet
 
         //if the planet are static object they will not change when the game run
         gameObject.transform.localScale = new Vector3(size, size, size);
+        //Update the health Bar
+        UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, material);
     }
 
 
@@ -112,6 +114,9 @@ public class EnemyPlanet : Planet
                     UpgradeLevel(lvl);
                 }
             }
+
+            //Update the health Bar
+            UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, material);
         }
     }
 
