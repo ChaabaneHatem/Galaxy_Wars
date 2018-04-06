@@ -46,6 +46,7 @@ public class GV
 
     //information Camera Control
     public static readonly float CAMERA_SPEED = 10;
+    public static readonly float CAMERA_ROTATE_SPEED = 35;
 
     //useful function
     public static float GetRandomFloat(Vector2 vector)

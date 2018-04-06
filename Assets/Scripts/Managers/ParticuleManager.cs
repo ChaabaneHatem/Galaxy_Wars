@@ -75,11 +75,6 @@ public class ParticuleManager
         currentTimeToEnemyAttack += dt;
         if (currentTimeToEnemyAttack >= GV.TIME_ENEMY_TO_ATTACK)
         {
-
-            while (_listeParticuleEnemy.ElementAt(GV.GetRandomInt(new Vector2(1, _listeParticuleEnemy.Count - 1))).Key == null)
-            {
-
-            }
             Vector3 RandomExistParticule = _listeParticuleEnemy.ElementAt(GV.GetRandomInt(new Vector2(1, _listeParticuleEnemy.Count - 1))).Key.position;
             Transform nearPlayerPlanetPosition = GetMostNearPositionOfPlanet(RandomExistParticule, _PlayerPlanets);
             foreach (KeyValuePair<Transform, Particule> kv in _listeParticuleEnemy)
@@ -129,7 +124,7 @@ public class ParticuleManager
 
     public void ControlParticulePlayer(Dictionary<Transform, Particule> listSelectedParticulePlayer, Transform destination)
     {
-        Debug.Log("appel control particule player ");
+        //Debug.Log("appel control particule player ");
         foreach (KeyValuePair<Transform, Particule> kv in listSelectedParticulePlayer)
         {
             if (kv.Key != null)

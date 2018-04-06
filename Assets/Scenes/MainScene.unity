@@ -155,12 +155,12 @@ Prefab:
     - target: {fileID: 114904746229644828, guid: d4c6f17521e91eb429a877dba2d93315,
         type: 2}
       propertyPath: lvl
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114904746229644828, guid: d4c6f17521e91eb429a877dba2d93315,
         type: 2}
       propertyPath: maxLevel
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4c6f17521e91eb429a877dba2d93315, type: 2}

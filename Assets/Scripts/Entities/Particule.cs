@@ -62,7 +62,7 @@ public class Particule : MonoBehaviour
                     playerPlanet.currentHealth -= value;
                 GameObject.Destroy(this.gameObject);
             }
-            Debug.Log("player planet heath" + playerPlanet.currentHealth);
+            //Debug.Log("player planet heath" + playerPlanet.currentHealth);
         }
         else if (objectInCollision.CompareTag(GV.ENEMY_PLANET_TAG))
         {
@@ -82,7 +82,7 @@ public class Particule : MonoBehaviour
                 GameObject.Destroy(this.gameObject);
             }
 
-            Debug.Log("enemy planet heath" + enemyPlanet.currentHealth);
+            //Debug.Log("enemy planet heath" + enemyPlanet.currentHealth);
         }
     }
 
@@ -91,7 +91,7 @@ public class Particule : MonoBehaviour
     {
         if (otherParticule.CompareTag(GV.PLAYER_PARTICULE_TAG) || otherParticule.CompareTag(GV.ENEMY_PARTICULE_TAG))
         {
-            Debug.Log("particule destroyed Named" + gameObject.name);
+            //Debug.Log("particule destroyed Named" + gameObject.name);
             PlayerPlanet.nbTotalParticulePlayer--;
             EnemyPlanet.nbTotalParticuleEnemy--;
             GameObject.Destroy(this.gameObject);

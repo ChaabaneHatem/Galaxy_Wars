@@ -8,5 +8,8 @@ public class CameraControl : MonoBehaviour
     public float cameraSpeed;
     [HideInInspector]
     public Vector3 step;
+    [HideInInspector]
+    public Vector3 rotateStep;
+
 
 }

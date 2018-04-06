@@ -89,7 +89,7 @@ public class SuperNovaPlanet : Planet
                 currentHealth = nbParticulePlayer - nbParticuleEnemy;
                 if (currentHealth == capacity)
                 {
-                    Debug.Log("remove the SuperNova planet and explosion of playerParticule");
+                    //Debug.Log("remove the SuperNova planet and explosion of playerParticule");
                     explosion = true;
                     particuleTypeInside = GV.PLANET_TYPE.PLAYER;
                     //remove the supernova after i update this supernova
@@ -102,7 +102,7 @@ public class SuperNovaPlanet : Planet
                 currentHealth = nbParticuleEnemy - nbParticulePlayer;
                 if (currentHealth == capacity)
                 {
-                    Debug.Log("remove the supernova planet and explosion of enemyParticule");
+                    //Debug.Log("remove the supernova planet and explosion of enemyParticule");
                     explosion = true;
                     particuleTypeInside = GV.PLANET_TYPE.ENEMY;
                     //remove the supernova after i update this supernova

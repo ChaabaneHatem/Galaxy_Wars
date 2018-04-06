@@ -56,10 +56,10 @@ public class EnemyPlanet : Planet
             particuleComponent.particuleType = type;
             particuleComponent.initParticule();
 
-            Debug.Log(" currentTime : " + currentTime);
+            //Debug.Log(" currentTime : " + currentTime);
             currentTime = 0;
             nbTotalParticuleEnemy++;
-            Debug.Log(" ParentParticulePlayer : " + nbTotalParticuleEnemy);
+            //Debug.Log(" ParentParticulePlayer : " + nbTotalParticuleEnemy);
             Dictionary<Transform, Particule> uneParticuleEnemy = new Dictionary<Transform, Particule>();
             uneParticuleEnemy.Add(particule.transform, particuleComponent);
             return uneParticuleEnemy;
@@ -94,7 +94,7 @@ public class EnemyPlanet : Planet
 
             if (currentHealth == 0)
             {
-                Debug.Log("destroy this enemy planet and add a neural planet ");
+                //Debug.Log("destroy this enemy planet and add a neural planet ");
                 PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).AddPlanet(transform, maxLevel);
                 PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.ENEMY).RemovePlanet(transform);
             }

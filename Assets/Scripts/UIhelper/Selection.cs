@@ -14,7 +14,7 @@ public class Selection : MonoBehaviour
 
     public void InitSelection(Vector3 _firstPositionClick)
     {
-        Debug.Log("initSelection");
+        //Debug.Log("initSelection");
         firstPositionClick = _firstPositionClick;
         listOfSelectedParticulePlayer = new List<Transform>();
         rayonOfSelection = 0;

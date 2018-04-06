@@ -56,10 +56,10 @@ public class PlayerPlanet : Planet
             //we must call this function when particule was created 
             particuleComponent.initParticule();
 
-            Debug.Log(" currentTime : " + currentTime);
+            //Debug.Log(" currentTime : " + currentTime);
             currentTime = 0;
             nbTotalParticulePlayer++;
-            Debug.Log(" ParentParticulePlayer : " + nbTotalParticulePlayer);
+            //Debug.Log(" ParentParticulePlayer : " + nbTotalParticulePlayer);
 
         }
     }
@@ -89,7 +89,7 @@ public class PlayerPlanet : Planet
             }
             if (currentHealth == 0)
             {
-                Debug.Log("remove this planet player and add a neutral planet ");
+                //Debug.Log("remove this planet player and add a neutral planet ");
                 PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.NEUTRAL).AddPlanet(transform, maxLevel);
                 PlanetManagerMaster.Instance.GetPlanetManager(GV.TEAM.PLAYER).RemovePlanet(transform);
             }

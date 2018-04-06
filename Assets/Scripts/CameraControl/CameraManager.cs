@@ -33,11 +33,13 @@ public class CameraManager
         cameraControl = GameObjectCamera.gameObject.AddComponent<CameraControl>();
         cameraControl.cameraSpeed = GV.CAMERA_SPEED;
         cameraControl.step = new Vector3(0, 0, 0);
+        cameraControl.rotateStep = new Vector3(0, 0, 0);
     }
 
     public void UpdateCamera(float dt)
     {
         cameraControl.step = new Vector3(0, 0, 0);
+        cameraControl.rotateStep = new Vector3(0, 0, 0);
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.RightArrow))
         {
@@ -59,13 +61,16 @@ public class CameraManager
         if (Input.GetKey(KeyCode.Q))
         {
             cameraControl.step = new Vector3(0, 1, 0);
+            cameraControl.rotateStep = Vector3.right;
         }
         if (Input.GetKey(KeyCode.E))
         {
             cameraControl.step = new Vector3(0, -1, 0);
+            cameraControl.rotateStep = -Vector3.right;
         }
 
         GameObjectCamera.position = GameObjectCamera.position + cameraControl.step * cameraControl.cameraSpeed * dt;
+        GameObjectCamera.Rotate(cameraControl.rotateStep * GV.CAMERA_ROTATE_SPEED * dt);
     }
 
 
