@@ -71,9 +71,20 @@ public class PlanetManagerMaster
                 kv.Value.UpdatePlanet(dt);
             }
         }
+        FinishGame();
     }
 
-
+    public void FinishGame()
+    {
+        if (GetPlanetManager(GV.TEAM.PLAYER).listPlanetForEveryManager.Count == 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+        }
+        if (GetPlanetManager(GV.TEAM.ENEMY).listPlanetForEveryManager.Count == 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("EndGame");
+        }
+    }
 
     public PlanetManager GetPlanetManager(GV.TEAM teamName)
     {
