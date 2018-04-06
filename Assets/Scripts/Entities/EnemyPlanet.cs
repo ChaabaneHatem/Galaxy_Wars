@@ -84,11 +84,15 @@ public class EnemyPlanet : Planet
             if (other.gameObject.CompareTag(GV.ENEMY_PARTICULE_TAG))
             {
                 Particule particuleEnemy = other.gameObject.GetComponent<Particule>();
-                if (lvl < maxLevel)
+                if (lvl <= maxLevel)
                 {
-                    currentHealth += particuleEnemy.value;
-                    GameObject.Destroy(other.gameObject);
-                    nbTotalParticuleEnemy--;
+                    float MaxLevelCapacity = maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL;
+                    if (currentHealth < MaxLevelCapacity)
+                    {
+                        currentHealth += particuleEnemy.value;
+                        GameObject.Destroy(other.gameObject);
+                        nbTotalParticuleEnemy--;
+                    }
                 }
             }
 

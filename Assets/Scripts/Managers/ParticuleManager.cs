@@ -73,18 +73,26 @@ public class ParticuleManager
     public void ControlParticuleEnemy(float dt, Dictionary<Transform, Particule> _listeParticuleEnemy, Dictionary<Transform, Planet> _PlayerPlanets)
     {
         currentTimeToEnemyAttack += dt;
+        int RandomNumber = GV.GetRandomInt(new Vector2(1, _listeParticuleEnemy.Count - 1));
         if (currentTimeToEnemyAttack >= GV.TIME_ENEMY_TO_ATTACK)
         {
-            Vector3 RandomExistParticule = _listeParticuleEnemy.ElementAt(GV.GetRandomInt(new Vector2(1, _listeParticuleEnemy.Count - 1))).Key.position;
-            Transform nearPlayerPlanetPosition = GetMostNearPositionOfPlanet(RandomExistParticule, _PlayerPlanets);
-            foreach (KeyValuePair<Transform, Particule> kv in _listeParticuleEnemy)
+            if (_listeParticuleEnemy.ElementAt(RandomNumber).Key == null)
             {
-                if (kv.Key != null)
-                {
-                    kv.Value.setParticuleDestination(nearPlayerPlanetPosition);
-                }
+                currentTimeToEnemyAttack -= dt;
             }
-            currentTimeToEnemyAttack = 0;
+            else if (_listeParticuleEnemy.ElementAt(RandomNumber).Key != null)
+            {
+                Vector3 RandomExistParticule = _listeParticuleEnemy.ElementAt(GV.GetRandomInt(new Vector2(1, _listeParticuleEnemy.Count - 1))).Key.position;
+                Transform nearPlayerPlanetPosition = GetMostNearPositionOfPlanet(RandomExistParticule, _PlayerPlanets);
+                foreach (KeyValuePair<Transform, Particule> kv in _listeParticuleEnemy)
+                {
+                    if (kv.Key != null)
+                    {
+                        kv.Value.setParticuleDestination(nearPlayerPlanetPosition);
+                    }
+                }
+                currentTimeToEnemyAttack = 0;
+            }
         }
     }
 
