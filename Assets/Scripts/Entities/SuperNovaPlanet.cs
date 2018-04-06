@@ -32,7 +32,7 @@ public class SuperNovaPlanet : Planet
         gameObject.transform.localScale = new Vector3(size, size, size);
 
         //Init Helath Bar
-        UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.NEUTRAL_PLANET_MATERIAL));
+        UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.SUPERNOVA_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.NEUTRAL_PLANET_MATERIAL));
 
     }
 
@@ -101,7 +101,7 @@ public class SuperNovaPlanet : Planet
                 }
 
                 //Update Helath Bar
-                UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.PLAYER_PLANET_MATERIAL));
+                UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.SUPERNOVA_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.PLAYER_PLANET_MATERIAL));
             }
             if (nbParticulePlayer < nbParticuleEnemy)
             {
@@ -117,14 +117,14 @@ public class SuperNovaPlanet : Planet
                 }
 
                 //Update Helath Bar
-                UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.ENEMY_PLANET_MATERIAL));
+                UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.SUPERNOVA_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.ENEMY_PLANET_MATERIAL));
             }
             if (nbParticulePlayer == nbParticuleEnemy)
             {
                 currentHealth = 0;
 
                 //Update Helath Bar
-                UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.PLANET_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.NEUTRAL_PLANET_MATERIAL));
+                UpdateHealth(healthBarTransform, currentHealth, maxLevel * GV.SUPERNOVA_MAX_PARTICULE_PER_LEVEL, Resources.Load<Material>(GV.NEUTRAL_PLANET_MATERIAL));
             }
         }
     }
